@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: lavender;
 }
 
 header{
-    background-color: gold;
+    background-color: darkorchid;
     padding: 30px;
     margin: 0 auto;
 }
@@ -16,21 +19,30 @@ main{
 
 header > h1{
     font-size: 25pt;
+    color: white;
 }
 
 header > p{
     font-size: 15pt;
+    color: white;
 }
 
 section{
+    font-family: 'Itim', cursive;
+    background-color: white;
     display: inline-block;
     margin-top: 40px;
     margin-right: 40px;
     border: 1px solid gray;
     border-radius: 5px;
-
+    filter: grayscale(100%);
 }
 
 section > p{
     margin: 10px 10px 15px 15px;
+}
+
+section:hover{
+    filter: grayscale(0%);
+    transition: 0.5s;
 }

@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: gold;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+main{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+header > h1{
+    font-size: 25pt;
+}
+
+header > p{
+    font-size: 15pt;
+}
+
+section{
+    display: inline-block;
+    margin-top: 40px;
+    margin-right: 40px;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+}
+
+section > p{
+    margin: 10px 10px 15px 15px;
+}

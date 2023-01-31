@@ -27,7 +27,7 @@ header > p{
     color: white;
 }
 
-section{
+main > section{
     font-family: 'Itim', cursive;
     background-color: white;
     display: inline-block;

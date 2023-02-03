@@ -2,6 +2,14 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
 
 
-.fa-solid {
+i {
+    font-size: 100px;
+}
+
+#coffee {
     font-size: 50px;
+}
+
+#heart{
+    color: red;
 }

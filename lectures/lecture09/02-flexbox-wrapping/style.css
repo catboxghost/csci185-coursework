@@ -1,0 +1,42 @@
+/* I add this line to all of my CSS files by default */
+body * {
+    box-sizing: border-box;
+}
+
+/*
+----------
+Properties
+----------
+align-items: 		(flex-start, flex-end, space-around, space-between, center)
+justify-content: 	(same as align-items)
+flex-direction: 	(row, column, row-reverse, column-reverse)
+flex-wrap: 		    (no-wrap, wrap)
+*/
+
+
+main, section{
+    border: 5px double green;
+    padding: 10px;
+    margin: 10px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+section{
+    width: 25%;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    /* Your code here */
+}
+
+@media only screen and (max-width: 600px) {
+    /* Your code here */
+}
+

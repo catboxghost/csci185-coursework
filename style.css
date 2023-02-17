@@ -38,6 +38,10 @@ p, li {
     font-size: 1.1em;
 }
 
+li{
+    list-style-type: none;
+}
+
 a{
     text-decoration: none;
     color: lightskyblue;

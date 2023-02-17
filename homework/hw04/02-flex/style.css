@@ -1,0 +1,78 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* create additional rules below:  */
+
+
+#home{
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#bio{
+    background-color: #4298f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#portfolio{
+    background-color: #345ad9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+#contact{
+    background-color: #19249e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+nav{
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    padding: 20px;
+    width: 100vw;
+}
+
+ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+ul li{
+    margin: 10px;
+}
+

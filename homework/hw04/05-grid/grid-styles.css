@@ -6,7 +6,11 @@ body {
 
 .grid-container {
     height: 100vh;
+    display: grid;
     /* you will add addition rules for the container here  */
 }
 
 /* create your child rules here:  */
+.item-1{
+    grid-template-rows: repeat(4, 75vw);
+}

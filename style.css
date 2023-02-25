@@ -22,7 +22,6 @@ main{
 section{
     padding: 15px;
     border: 2px solid white;
-    text-align: center;
     font-family: 'Press Start 2P', cursive;
     font-size: 10pt;
 }

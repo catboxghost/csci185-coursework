@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Your CSS Code Here! */
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: teal;
+    width: 100vw;
+    height: 60px;
+}
+
+/* navigation bar */
+
+nav ul,a{
+    list-style-type: none;
+    text-decoration: none;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav li{
+    display: inline;
+}
+
+nav a:hover{
+    color: teal;
+    background-color: white;
+}
+
+/* header */
+
+header{
+    background-color: teal;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+header div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: 'Mynerve', cursive;
+    font-size: 12pt;
+}
+
+header img{
+    border-radius: 50%;
+}
+
+/* sections */
+
+section h2{
+    font-family: 'Mynerve', cursive;
+    font-size: 18pt;
+}
+
+section p{
+    font-family: 'Roboto', sans-serif;
+}
+
+#about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 10vw;
+}
+
+
+#projects{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120vh;
+    width: 100vw;
+    padding: 10vw;
+}
+
+
+.card > img{
+    max-width: 100%;
+}
+
+.card h3{
+    font-family: 'Mynerve', cursive;
+}
+
+.card p{
+    font-family: 'Roboto', sans-serif;
+}
+
+.project-holder{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+}
+
+/* conact */
+
+#contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 10vw;
+}
+
+.contact-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+
+input[type="text"] {
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+    width: 40%;
+    padding: 12px 10px;
+}
+
+input[type="email"] {
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+    padding: 12px 10px;
+    width: 60%;
+}
+
+textarea[name="message"] {
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    padding: 12px 10px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+/* footer */
+
+footer{
+    background-color: #f2f2f2;
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16pt;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

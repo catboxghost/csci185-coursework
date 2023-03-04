@@ -22,6 +22,7 @@ nav{
     background-color: teal;
     width: 100vw;
     height: 60px;
+    position: fixed;
 }
 
 /* navigation bar */
@@ -56,12 +57,13 @@ header{
 header div{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     color: white;
     font-family: 'Mynerve', cursive;
     font-size: 12pt;
+    height: 65vh;
 }
 
 header img{
@@ -94,7 +96,7 @@ section p{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 120vh;
+    height: 140vh;
     width: 100vw;
     padding: 10vw;
 }
@@ -178,6 +180,12 @@ footer p{
     font-size: 16pt;
 }
 
+@media screen and (max-width: 480px){
+    .project-holder{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
 
 
 

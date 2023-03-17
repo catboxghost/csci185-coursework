@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main, footer {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+header{
+    padding: 25px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #013672;
+}
+
+* h1, h2, h3{
+    font-family: 'Passion One', cursive;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    text-transform: uppercase;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+header img, footer img {
+    width: 200px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+main h1{
+    align-self: center;
+    margin-top: 50px;
+}
+
+main h2{
+    margin-top: 35px;
+    margin-left: 3.5vw;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2, 40vw);
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+}
+
+.card{
+    border: 1px solid gray;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 15px 15px;
+    transition: 0.3s;
+}
+
+.card img{
+    height: 100%;
+    width: 100%;
+}
+
+.card:hover{
+    background-color: #013672;
+    color: white;
+
+}
+
+footer{
+    background-color: #013672;
+    padding: 20px 30px;
+    margin-top: 10vw;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+    .cards{
+        grid-template-columns: 1fr;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    header img{
+        height: 100%;
+        width: 100%;
+    }
+
+    nav a{
+        font-size: 10pt;
+    }
+
+    footer h2, h3{
+        font-size: 10pt;
+    }
+
+    footer img{
+        width: 50%;
+        height: 50%;
+    }
+    
+}

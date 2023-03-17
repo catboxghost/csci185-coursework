@@ -112,6 +112,7 @@ section p{
 
 .card p{
     font-family: 'Roboto', sans-serif;
+    width: 300px;
 }
 
 .project-holder{

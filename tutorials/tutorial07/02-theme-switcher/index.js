@@ -1,17 +1,21 @@
 function defaultTheme() {
     // your code here.
+    document.querySelector('body').className = "default";
 }
 
 function oceanTheme() {
    // your code here.
+   document.querySelector('body').className = "ocean";
 }
 
 function desertTheme() {
    // your code here.
+   document.querySelector('body').className = "desert";
 }
 
-function highContrastTheme() {
+function spaceTheme() {
     // your code here.
+    document.querySelector('body').className = "space";
 }
 
 /*

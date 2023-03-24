@@ -44,10 +44,15 @@ button {
     margin-right: 15px;
 }
 
-#a1 {
+button:hover {
+    background-color: lightgrey;
+}
+
+
+#bigger {
    font-size: 2em;
 }
-#a2 {
+#smaller {
    font-size: 1em;
 }
 
@@ -83,6 +88,10 @@ h1 {
     border-bottom: solid 1px #434a6c;
 }
 
+.ocean button:hover {
+    background-color: #99cccc;
+}
+
 .desert header {
     background: #A8651E;
     color: #EFDEC2;
@@ -96,6 +105,35 @@ h1 {
 }
 .desert header, .desert nav {
     border-bottom: solid 1px #774713;
+}
+
+.desert button:hover {
+    background-color: #EFDEC2;
+}
+
+.space header {
+    background: #b80299;
+    color: white;
+    font-family: 'Montserrat';
+ }
+ .space button, .space .content {
+     color: #eba6f7;
+ }
+ .space .content {
+    background: #4d2a70;
+    line-height: 1.6em;
+ }
+ .space header, .space nav {
+     border-bottom: solid 1px #b80299;
+ }
+
+ .space button {
+    color: #b80299;
+ }
+
+.space button:hover {
+    background-color: #4d2a70;
+    color: white;
 }
 
 .high-contrast header {

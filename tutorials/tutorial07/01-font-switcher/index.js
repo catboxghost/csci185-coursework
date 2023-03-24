@@ -1,9 +1,11 @@
 function makeBigger() {
-   alert('make bigger!');
+   document.querySelector('div.content').style.fontSize = "30pt";
+   document.querySelector('h1').style.fontSize = "40pt";
 };
 
 function makeSmaller() {
-   alert('make smaller!');
+   document.querySelector('div.content').style.fontSize = "1.4em";
+   document.querySelector('h1').style.fontSize = "2em";
 };
 
 /*

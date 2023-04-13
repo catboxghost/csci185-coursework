@@ -11,10 +11,6 @@ const photos = [
     "images/img10-600x400.jpg"
 ];
 
-const captions = [
-    "Image 1 of 10", "Image 2 of 10", "Image 3 of 10", "Image 4 of 10", "Image 5 of 10",
-    "Image 6 of 10", "Image 7 of 10", "Image 8 of 10", "Image 9 of 10", "Image 10 of 10"
-];
 
 
 /* This function should:
@@ -27,10 +23,9 @@ function showImage() {
     let template = 
         `<div class="current-photo">
         <img src="${photos[idx]}" alt="current photo" />
-        </div> 
-        <p class="caption">${captions[idx]}</p>`;
+        </div> `;
     document.querySelector('.current-photo').innerHTML = template;
-    document.querySelector('.caption').innerHTML = template;
+    document.querySelector('.caption').innerHTML = `Photo ${idx + 1} of 10`;
 }
 
 
@@ -42,8 +37,12 @@ function showImage() {
 */
 function forward() {
     console.log('forward');
-    if (i > slides.length) 
-        {idx = 1};
+    if (idx < photos.length - 1) {
+        idx++;
+    } else { 
+        idx = 0;
+    };
+    showImage();
 }
 
 
@@ -55,4 +54,10 @@ function forward() {
 */
 function back() {
     console.log('back');
+    if (idx > 0) {
+        idx--;
+    } else {
+        idx = photos.length -1;
+    };
+    showImage();
 }

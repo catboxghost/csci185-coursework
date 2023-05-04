@@ -1,3 +1,5 @@
+// i am never working on a game project by myself again
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 
@@ -35,15 +37,17 @@ class Sprite {
 };
 
 //instantiate player with physics
-class Player {
-    constructor(position) {
+class Player extends Sprite {
+    constructor({position, collisionBlocks, imageSrc}) {
+        super({});
         this.position = position;
         this.velocity = {
             x: 0,
             y: 1
         }
-        this.height = 100;
-        this.width = 100;
+        this.height = 50;
+        this.width = 50;
+        this.collisionBlocks = collisionBlocks;
     };
 
     draw() {
@@ -54,19 +58,126 @@ class Player {
     update() {
         this.draw();
         this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
-        //stops once player reaches the bottom of the screen
-        if (this.position.y + this.height + this.velocity.y < canvas.height) {
-            this.velocity.y += gravity;
-        } else {
-            this.velocity.y = 0;
-        }
+        this.checkForHorizontalCollisions();
+        this.applyGravity();
+        this.checkForVerticalCollisions();
     };
+
+    checkForHorizontalCollisions() { 
+        for(let idx = 0; idx < collisionBlocks.length; idx++) {
+            const collisionBlock = this.collisionBlocks[idx];
+
+            if (collisions({
+                object1: this,
+                object2: collisionBlock,
+            })) {
+                if (this.velocity.x > 0) {
+                    this.velocity.x = 0;
+                    this.position.x = collisionBlock.position.x - this.width - 0.01;
+                    break;
+                };
+
+                if (this.velocity.x < 0) {
+                    this.velocity.x = 0;
+                    this.position.x = collisionBlock.position.x + collisionBlock.width + 0.01;
+                    break;
+                };
+            };
+        };
+    };
+
+    applyGravity() {
+        this.position.y += this.velocity.y;
+        this.velocity.y += gravity;
+    };
+
+    checkForVerticalCollisions() { 
+        for(let idx = 0; idx < collisionBlocks.length; idx++) {
+            const collisionBlock = this.collisionBlocks[idx];
+
+            if (collisions({
+                object1: this,
+                object2: collisionBlock,
+            })) {
+                if (this.velocity.y > 0) {
+                    this.velocity.y = 0;
+                    this.position.y = collisionBlock.position.y - this.height - 0.01;
+                    break;
+                };
+
+                if (this.velocity.y < 0) {
+                    this.velocity.y = 0;
+                    this.position.y = collisionBlock.position.y + collisionBlock.height + 0.01;
+                    break;
+                };
+            };
+        };
+    };
+};
+
+class CollisionBlock {
+    constructor({position}) {
+        this.position = position; 
+        this.height = 40;
+        this.width = 40;
+    }
+
+    draw() {
+        ctx.fillStyle = 'rgba(255, 0, 0, 0.5)'
+        ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+    };
+
+    update() {
+        this.draw();
+    };
+};
+
+
+
+const floorCollisions2D = [];
+for (let idx = 0; idx < floorCollisions.length; idx += 26) {
+    floorCollisions2D.push(floorCollisions.slice(idx, idx + 26))
 }
 
+const collisionBlocks = [];
+floorCollisions2D.forEach((row, y) => {
+row.forEach((symbol, x) => {
+        if (symbol === 12) {
+            collisionBlocks.push(new CollisionBlock({position: {
+                x: x * 40,
+                y: y * 40
+            }})) // <- look at all these brackets. ridiculous
+        }
+    })
+})
+
+const platformCollisions2D = [];
+for (let idx = 0; idx < platformCollisions.length; idx += 26) {
+    platformCollisions2D.push(platformCollisions.slice(idx, idx + 26))
+}
+
+const platformCollisionBlocks = [];
+platformCollisions2D.forEach((row, y) => {
+row.forEach((symbol, x) => {
+        if (symbol === 156) {
+            platformCollisionBlocks.push(new CollisionBlock({position: {
+                x: x * 40,
+                y: y * 40
+            }})) 
+        }
+    })
+})
 
 
-const player = new Player({x: 0, y: 0});
+//*********************************************************************
+//*                     implementations                               *
+//*********************************************************************
+
+const player = new Player(
+    {position: 
+        {x: 80, y: 240},
+        collisionBlocks: collisionBlocks
+});
 
 const keys = {
     d: {
@@ -78,7 +189,7 @@ const keys = {
 };
 const background = new Sprite({
     position: {x: 0, y: 0}, 
-    imageSrc: 'graphics/slimeworld_bg1.jpg'
+    imageSrc: 'graphics/zone1.png'
 });
 
 //this is a bad way to instantiate a loop. dont do this. 
@@ -88,20 +199,24 @@ function animate() {
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     
-    ctx.save();
-    ctx.scale(2, 2);
-    ctx.translate(0, -background.image.height + scaledCanvas.height);
     background.update();
-    ctx.restore();
+
+    collisionBlocks.forEach(collisionBlock => {
+        collisionBlock.update();
+    });
+
+    platformCollisionBlocks.forEach(block => {
+        block.update();
+    });
 
     player.update();
     
 
     player.velocity.x = 0;
     if (keys.d.pressed) {
-        player.velocity.x = 5;
+        player.velocity.x = 4;
     } else if (keys.a.pressed) {
-        player.velocity.x = -5;
+        player.velocity.x = -4;
     }
 };
 
@@ -113,15 +228,11 @@ window.addEventListener('keydown', (event) => {
     switch (event.key) {
         //jump
         case 'w': 
-            player.velocity.y = -20;
+            player.velocity.y = -12;
         break;
         //move left
         case 'a': 
             keys.a.pressed = true;
-        break;
-        //ground pound
-        case 's':
-            player.velocity.y = 15;
         break;
         //move right
         case 'd': 
